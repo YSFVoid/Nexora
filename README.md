@@ -42,41 +42,6 @@ An external dashboard connects to the same MongoDB instance to provide web-based
 | Database | MongoDB / Mongoose |
 | Auth | Discord Bot Token |
 
-## Project Structure
-
-```
-bot/
-├── src/
-│   ├── index.js
-│   ├── deploy-commands.js
-│   ├── config/
-│   ├── constants/
-│   ├── handlers/
-│   ├── middleware/
-│   ├── models/
-│   │   ├── GuildConfig.js
-│   │   ├── SecurityConfig.js
-│   │   ├── ModerationCase.js
-│   │   ├── TempVoice.js
-│   │   ├── Ticket.js
-│   │   └── Modules.js
-│   ├── modules/
-│   │   ├── security/
-│   │   ├── tempvoice/
-│   │   ├── tickets/
-│   │   ├── setup/
-│   │   ├── welcome/
-│   │   ├── autorole/
-│   │   ├── leveling/
-│   │   └── verification/
-│   ├── commands/
-│   │   ├── slash/
-│   │   └── prefix/
-│   ├── events/
-│   ├── services/
-│   └── utils/
-└── locales/
-```
 
 ## Shared Database Schema
 
