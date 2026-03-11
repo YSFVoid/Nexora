@@ -1,7 +1,7 @@
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const { connectDatabase } = require('./config/database');
 const env = require('./config/env');
-const { loadCommands, deploySlashCommands } = require('./handlers/commandHandler');
+const { loadCommands } = require('./handlers/commandHandler');
 const { loadEvents } = require('./handlers/eventHandler');
 const { registerErrorHandlers } = require('./handlers/errorHandler');
 const { loadLocales } = require('./modules/localization/i18n');
@@ -37,7 +37,7 @@ async function start() {
   loadLocales();
   loadCommands(client);
   loadEvents(client);
-  await deploySlashCommands(client);
+
   await client.login(env.DISCORD_TOKEN);
 }
 

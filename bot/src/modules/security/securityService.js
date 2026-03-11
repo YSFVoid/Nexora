@@ -24,7 +24,7 @@ const SCAM_PATTERNS = [
   /crypto.*giveaway/i,
 ];
 
-const INVITE_REGEX = /(discord\.(gg|io|me|li)|discordapp\.com\/invite|discord\.com\/invite)\/[a-zA-Z0-9]+/gi;
+const INVITE_PATTERN = /(discord\.(gg|io|me|li)|discordapp\.com\/invite|discord\.com\/invite)\/[a-zA-Z0-9]+/i;
 const URL_REGEX = /https?:\/\/[^\s<]+/gi;
 
 async function getSecurityConfig(guildId) {
@@ -67,7 +67,7 @@ async function processMessage(message) {
   }
 
   if (config.antiInvite?.enabled) {
-    if (INVITE_REGEX.test(message.content)) {
+    if (INVITE_PATTERN.test(message.content)) {
       riskScore += 40;
       violations.push({ type: 'invite', action: config.antiInvite.action });
     }

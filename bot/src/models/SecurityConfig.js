@@ -1,4 +1,4 @@
-const { mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 
 const securityConfigSchema = new mongoose.Schema({
   guildId: { type: String, required: true, unique: true, index: true },
@@ -7,7 +7,7 @@ const securityConfigSchema = new mongoose.Schema({
     enabled: { type: Boolean, default: true },
     messageLimit: { type: Number, default: 5 },
     timeWindow: { type: Number, default: 5000 },
-    action: { type: String, default: 'timeout', enum: ['warn', 'timeout', 'kick', 'ban'] },
+    action: { type: String, default: 'warn', enum: ['warn', 'timeout', 'kick', 'ban'] },
     timeoutDuration: { type: Number, default: 300000 },
   },
 
@@ -28,7 +28,7 @@ const securityConfigSchema = new mongoose.Schema({
 
   antiInvite: {
     enabled: { type: Boolean, default: true },
-    action: { type: String, default: 'warn', enum: ['delete', 'warn', 'timeout', 'kick'] },
+    action: { type: String, default: 'delete', enum: ['delete', 'warn', 'timeout', 'kick'] },
   },
 
   antiMassMention: {

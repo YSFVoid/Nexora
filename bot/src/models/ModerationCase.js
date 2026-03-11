@@ -1,4 +1,4 @@
-const { mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 
 const moderationCaseSchema = new mongoose.Schema({
   guildId: { type: String, required: true, index: true },

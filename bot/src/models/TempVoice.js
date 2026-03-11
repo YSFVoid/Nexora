@@ -1,4 +1,4 @@
-const { mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 
 const tempVoiceConfigSchema = new mongoose.Schema({
   guildId: { type: String, required: true, unique: true, index: true },
