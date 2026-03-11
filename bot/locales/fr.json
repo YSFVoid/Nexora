@@ -1,0 +1,67 @@
+{
+  "common": {
+    "success": "Succès",
+    "error": "Erreur",
+    "warning": "Avertissement",
+    "info": "Info",
+    "loading": "Chargement...",
+    "noPermission": "Vous n'avez pas la permission d'utiliser ceci.",
+    "cooldown": "Veuillez patienter **{seconds}s** avant de réutiliser.",
+    "invalidUser": "Utilisateur invalide.",
+    "invalidChannel": "Canal invalide.",
+    "noReason": "Aucune raison fournie",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Sauvegarder",
+    "done": "Terminé"
+  },
+  "commands": {
+    "ban": {
+      "success": "**{user}** a été banni. Raison : {reason}",
+      "dmNotify": "Vous avez été banni de **{guild}**. Raison : {reason}"
+    },
+    "kick": {
+      "success": "**{user}** a été expulsé. Raison : {reason}",
+      "dmNotify": "Vous avez été expulsé de **{guild}**. Raison : {reason}"
+    },
+    "warn": {
+      "success": "**{user}** a reçu un avertissement. Raison : {reason}",
+      "noWarnings": "Cet utilisateur n'a aucun avertissement."
+    },
+    "purge": {
+      "success": "**{count}** messages supprimés."
+    },
+    "ping": {
+      "title": "Pong !",
+      "latency": "Latence : **{latency}ms**\nLatence API : **{api}ms**"
+    },
+    "setup": {
+      "title": "Assistant de Configuration Nexora",
+      "welcome": "Bienvenue dans l'assistant de configuration Nexora ! Configurons votre serveur.",
+      "complete": "Configuration Terminée !",
+      "completeDesc": "Nexora est maintenant configuré pour votre serveur."
+    }
+  },
+  "security": {
+    "spam": { "detected": "Spam détecté de {user}" },
+    "raid": { "detected": "Raid possible détecté ! {count} arrivées en {window}s" }
+  },
+  "tempvoice": {
+    "created": "Votre salon vocal temporaire a été créé !",
+    "notOwner": "Vous n'êtes pas le propriétaire de ce salon.",
+    "noRoom": "Vous n'avez pas de salon vocal actif."
+  },
+  "tickets": {
+    "panel": {
+      "title": "🎫 Tickets de Support",
+      "description": "Besoin d'aide ? Sélectionnez une catégorie pour créer un ticket."
+    },
+    "created": "Votre ticket a été créé ! {channel}",
+    "closed": "Ticket fermé par **{user}**."
+  },
+  "welcome": {
+    "defaultMessage": "Bienvenue sur **{guild}**, {user} ! 🎉"
+  }
+}

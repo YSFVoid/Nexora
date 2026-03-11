@@ -1,0 +1,201 @@
+{
+  "common": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "loading": "Loading...",
+    "noPermission": "You don't have permission to use this.",
+    "cooldown": "Please wait **{seconds}s** before using this again.",
+    "invalidUser": "Invalid user provided.",
+    "invalidChannel": "Invalid channel provided.",
+    "invalidRole": "Invalid role provided.",
+    "cannotModSelf": "You cannot use this on yourself.",
+    "cannotModOwner": "You cannot use this on the server owner.",
+    "cannotModHigher": "You cannot moderate someone with a higher or equal role.",
+    "botCannotMod": "I don't have permission to moderate this user.",
+    "noReason": "No reason provided",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "on": "On",
+    "off": "Off",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "done": "Done",
+    "close": "Close",
+    "delete": "Delete",
+    "page": "Page {current}/{total}"
+  },
+  "commands": {
+    "ban": {
+      "success": "**{user}** has been banned. Reason: {reason}",
+      "dmNotify": "You have been banned from **{guild}**. Reason: {reason}",
+      "alreadyBanned": "This user is already banned."
+    },
+    "kick": {
+      "success": "**{user}** has been kicked. Reason: {reason}",
+      "dmNotify": "You have been kicked from **{guild}**. Reason: {reason}"
+    },
+    "timeout": {
+      "success": "**{user}** has been timed out for **{duration}**. Reason: {reason}",
+      "removed": "Timeout removed from **{user}**."
+    },
+    "warn": {
+      "success": "**{user}** has been warned. Reason: {reason}",
+      "cleared": "All warnings cleared for **{user}**.",
+      "removed": "Warning #{id} removed from **{user}**.",
+      "list": "Warnings for **{user}**",
+      "noWarnings": "This user has no warnings."
+    },
+    "purge": {
+      "success": "Deleted **{count}** messages.",
+      "noMessages": "No messages found to delete.",
+      "tooMany": "You can only purge up to **{max}** messages at once."
+    },
+    "help": {
+      "title": "Nexora — Help",
+      "description": "Here are my available commands. Use `/help <command>` for details.",
+      "noCommand": "Command not found."
+    },
+    "ping": {
+      "title": "Pong!",
+      "latency": "Latency: **{latency}ms**\nAPI Latency: **{api}ms**"
+    },
+    "setup": {
+      "title": "Nexora Setup Wizard",
+      "welcome": "Welcome to the Nexora Setup Wizard! Let's configure your server.\n\nFirst, select your **server type** to get recommended settings.",
+      "serverType": "Server Type",
+      "selectType": "Select your server type",
+      "community": "Community Server",
+      "gaming": "Gaming Server",
+      "shop": "Shop / Business Server",
+      "creator": "Creator Server",
+      "support": "Support / Helpdesk",
+      "custom": "Custom Setup",
+      "presetsApplied": "Smart presets applied for **{type}** server!",
+      "configuring": "Configuring **{module}**...",
+      "complete": "Setup Complete!",
+      "completeDesc": "Nexora is now configured for your server. You can modify settings anytime using `/settings` or the dashboard.",
+      "securityLevel": "Security Level",
+      "selectSecurity": "Choose your security level",
+      "securityLow": "Low — Basic protection",
+      "securityMedium": "Medium — Recommended",
+      "securityHigh": "High — Maximum protection",
+      "step": "Step {current}/{total}"
+    }
+  },
+  "security": {
+    "spam": {
+      "detected": "Spam detected from {user}",
+      "action": "Action taken: **{action}** — Spam filter triggered ({count} messages in {window}s)"
+    },
+    "raid": {
+      "detected": "Possible raid detected! {count} joins in {window}s",
+      "action": "Anti-raid: **{action}** taken on {user}"
+    },
+    "link": {
+      "detected": "Unauthorized link removed from {user}",
+      "action": "Action taken: **{action}** — Link filter triggered"
+    },
+    "mention": {
+      "detected": "Mass mention detected from {user} ({count} mentions)",
+      "action": "Action taken: **{action}** — Mass mention filter triggered"
+    },
+    "scam": {
+      "detected": "Possible scam detected from {user}",
+      "action": "Action taken: **{action}** — Scam filter triggered"
+    },
+    "invite": {
+      "detected": "Unauthorized invite removed from {user}",
+      "action": "Action taken: **{action}** — Invite filter triggered"
+    },
+    "caps": {
+      "detected": "Excessive caps detected from {user}"
+    },
+    "emoji": {
+      "detected": "Emoji spam detected from {user}"
+    }
+  },
+  "tempvoice": {
+    "created": "Your temporary voice room has been created!",
+    "renamed": "Room renamed to **{name}**.",
+    "locked": "Room has been **locked**.",
+    "unlocked": "Room has been **unlocked**.",
+    "hidden": "Room is now **hidden**.",
+    "unhidden": "Room is now **visible**.",
+    "limitSet": "User limit set to **{limit}**.",
+    "limitRemoved": "User limit removed.",
+    "permitted": "**{user}** can now join your room.",
+    "denied": "**{user}** has been denied from your room.",
+    "kicked": "**{user}** has been kicked from your room.",
+    "claimed": "You have claimed ownership of this room.",
+    "transferred": "Room ownership transferred to **{user}**.",
+    "notOwner": "You are not the owner of this room.",
+    "noRoom": "You don't have an active voice room.",
+    "alreadyExists": "You already have an active voice room.",
+    "controlPanel": {
+      "title": "🔊 Voice Room Controls",
+      "description": "Use the buttons below to manage your temporary voice room.",
+      "rename": "Rename",
+      "lock": "Lock",
+      "unlock": "Unlock",
+      "hide": "Hide",
+      "unhide": "Unhide",
+      "limit": "User Limit",
+      "permit": "Permit User",
+      "deny": "Deny User",
+      "kick": "Kick User",
+      "claim": "Claim Room",
+      "transfer": "Transfer"
+    }
+  },
+  "tickets": {
+    "panel": {
+      "title": "🎫 Support Tickets",
+      "description": "Need help? Select a category below to create a ticket.\nOur team will assist you as soon as possible."
+    },
+    "created": "Your ticket has been created! {channel}",
+    "closed": "Ticket closed by **{user}**.",
+    "reopened": "Ticket reopened by **{user}**.",
+    "deleted": "This ticket will be deleted in 5 seconds.",
+    "claimed": "Ticket claimed by **{user}**.",
+    "unclaimed": "Ticket unclaimed by **{user}**.",
+    "memberAdded": "**{user}** has been added to this ticket.",
+    "memberRemoved": "**{user}** has been removed from this ticket.",
+    "transcriptSaved": "Transcript saved.",
+    "maxTickets": "You already have the maximum number of open tickets ({max}).",
+    "categories": {
+      "support": "General Support",
+      "bug": "Bug Report",
+      "purchase": "Purchase / Billing",
+      "report": "Report a User"
+    }
+  },
+  "welcome": {
+    "defaultMessage": "Welcome to **{guild}**, {user}! 🎉",
+    "defaultGoodbye": "**{user}** has left the server. Goodbye! 👋",
+    "set": "Welcome message configured in {channel}.",
+    "disabled": "Welcome messages disabled.",
+    "test": "Here's a preview of your welcome message:"
+  },
+  "leveling": {
+    "levelUp": "🎉 Congratulations {user}! You reached **Level {level}**!",
+    "rank": "Rank for **{user}**",
+    "xp": "XP: **{xp}/{needed}**",
+    "level": "Level: **{level}**",
+    "leaderboard": "Leaderboard for **{guild}**"
+  },
+  "suggestions": {
+    "submitted": "Your suggestion has been submitted!",
+    "approved": "Suggestion #{id} has been approved.",
+    "denied": "Suggestion #{id} has been denied.",
+    "implemented": "Suggestion #{id} has been marked as implemented."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "common": {
+    "success": "نجاح",
+    "error": "خطأ",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "loading": "جاري التحميل...",
+    "noPermission": "ليس لديك إذن لاستخدام هذا.",
+    "cooldown": "يرجى الانتظار **{seconds}** ثانية قبل إعادة الاستخدام.",
+    "noReason": "لم يتم تقديم سبب",
+    "enabled": "مُفعّل",
+    "disabled": "مُعطّل",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "done": "تم"
+  },
+  "commands": {
+    "ban": { "success": "تم حظر **{user}**. السبب: {reason}" },
+    "kick": { "success": "تم طرد **{user}**. السبب: {reason}" },
+    "warn": { "success": "تم تحذير **{user}**. السبب: {reason}" },
+    "purge": { "success": "تم حذف **{count}** رسائل." },
+    "ping": { "title": "بونغ!", "latency": "زمن الاستجابة: **{latency}ms**" },
+    "setup": { "title": "معالج إعداد Nexora", "complete": "اكتمل الإعداد!" }
+  },
+  "security": { "spam": { "detected": "تم اكتشاف بريد مزعج من {user}" } },
+  "tempvoice": { "created": "تم إنشاء غرفتك الصوتية المؤقتة!" },
+  "tickets": { "created": "تم إنشاء تذكرتك! {channel}" },
+  "welcome": { "defaultMessage": "مرحباً بك في **{guild}**، {user}! 🎉" }
+}

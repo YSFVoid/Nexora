@@ -1,0 +1,21 @@
+{
+  "common": {
+    "success": "Éxito", "error": "Error", "warning": "Advertencia", "info": "Info",
+    "loading": "Cargando...", "noPermission": "No tienes permiso para usar esto.",
+    "cooldown": "Espera **{seconds}s** antes de usar esto de nuevo.",
+    "noReason": "Sin razón proporcionada", "enabled": "Activado", "disabled": "Desactivado",
+    "cancel": "Cancelar", "confirm": "Confirmar", "done": "Hecho"
+  },
+  "commands": {
+    "ban": { "success": "**{user}** ha sido baneado. Razón: {reason}" },
+    "kick": { "success": "**{user}** ha sido expulsado. Razón: {reason}" },
+    "warn": { "success": "**{user}** ha sido advertido. Razón: {reason}" },
+    "purge": { "success": "**{count}** mensajes eliminados." },
+    "ping": { "title": "¡Pong!", "latency": "Latencia: **{latency}ms**\nLatencia API: **{api}ms**" },
+    "setup": { "title": "Asistente de Configuración Nexora", "complete": "¡Configuración Completa!" }
+  },
+  "security": { "spam": { "detected": "Spam detectado de {user}" } },
+  "tempvoice": { "created": "¡Tu sala de voz temporal ha sido creada!" },
+  "tickets": { "created": "¡Tu ticket ha sido creado! {channel}" },
+  "welcome": { "defaultMessage": "¡Bienvenido a **{guild}**, {user}! 🎉" }
+}
