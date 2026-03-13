@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { startSetup } = require('../../modules/setup/setupWizard');
+const { startSetup } = require('../../../modules/setup/setupWizard');
 
 module.exports = {
   name: 'setup',

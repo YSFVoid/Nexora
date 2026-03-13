@@ -26,7 +26,20 @@ async function deployPanel(guild, channelId, config) {
   const channel = await guild.channels.fetch(channelId).catch(() => null);
   if (!channel) throw new Error('Panel channel not found');
 
-  const categories = config.categories || DEFAULT_CATEGORIES;
+  let categories = config.categories || DEFAULT_CATEGORIES;
+  
+  // Safe Fallbacks
+  if (!Array.isArray(categories) || categories.length === 0) {
+    categories = DEFAULT_CATEGORIES;
+  }
+  
+  // Filter invalid entries and enforce Discord API max 25 items
+  categories = categories.filter(c => c && c.id && c.name).slice(0, 25);
+  
+  // Ultimate fallback if filter stripped everything
+  if (categories.length === 0) {
+      categories = DEFAULT_CATEGORIES.slice(0, 25);
+  }
 
   const embed = createEmbed({
     color: Colors.PRIMARY,
@@ -37,7 +50,7 @@ async function deployPanel(guild, channelId, config) {
       'Select a category below to create a ticket.',
       'Our team will assist you as soon as possible.',
       '',
-      categories.map((c) => `${c.emoji} **${c.name}** — ${c.description}`).join('\n'),
+      categories.map((c) => `${c.emoji || '🎫'} **${c.name.slice(0, 100)}** — ${(c.description || '').slice(0, 100)}`).join('\n'),
     ].join('\n'),
     footer: 'Nexora Ticket System',
   });
@@ -47,7 +60,10 @@ async function deployPanel(guild, channelId, config) {
     .setPlaceholder('📩 Select a category to create a ticket...')
     .addOptions(
       categories.map((c) => ({
-        label: c.name, value: c.id, emoji: c.emoji, description: c.description.slice(0, 100),
+        label: c.name.slice(0, 100), 
+        value: c.id.slice(0, 100), 
+        emoji: c.emoji || '🎫', 
+        description: (c.description || '').slice(0, 100),
       }))
     );
 

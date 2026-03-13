@@ -1,5 +1,5 @@
-const { createEmbed } = require('../../../utils/embeds');
-const Colors = require('../../../constants/colors');
+const { createEmbed } = require('../../utils/embeds');
+const Colors = require('../../constants/colors');
 
 module.exports = {
   name: 'avatar',

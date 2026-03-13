@@ -1,6 +1,6 @@
-const { createEmbed } = require('../../../utils/embeds');
-const Colors = require('../../../constants/colors');
-const Emojis = require('../../../constants/emojis');
+const { createEmbed } = require('../../utils/embeds');
+const Colors = require('../../constants/colors');
+const Emojis = require('../../constants/emojis');
 
 module.exports = {
   name: 'serverinfo',

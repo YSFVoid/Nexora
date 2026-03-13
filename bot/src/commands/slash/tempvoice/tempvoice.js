@@ -46,26 +46,44 @@ async function setupTempVoice(interaction) {
       });
     }
 
+    let controlChannel;
+    if (config?.controlPanelChannelId) {
+        controlChannel = guild.channels.cache.get(config.controlPanelChannelId);
+    }
+    if (!controlChannel) {
+        controlChannel = await guild.channels.create({
+            name: '🔧-room-controls', type: ChannelType.GuildText, parent: category.id,
+        });
+    }
+
     await TempVoiceConfig.findOneAndUpdate(
       { guildId: guild.id },
-      { creatorChannelId: creatorChannel.id, categoryId: category.id },
+      { creatorChannelId: creatorChannel.id, categoryId: category.id, controlPanelChannelId: controlChannel.id },
       { upsert: true, new: true }
     );
 
     await updateGuildConfig(guild.id, { 'modules.tempvoice': true });
     invalidateConfigCache(guild.id);
 
+    // Delete the old panel message if it exists in the control room to avoid duplicates
+    if (config?.controlPanelMessageId) {
+        try {
+            const oldMsg = await controlChannel.messages.fetch(config.controlPanelMessageId);
+            if (oldMsg) await oldMsg.delete();
+        } catch {}
+    }
+
     const { embed, components } = buildControlPanel();
-    const panelMsg = await interaction.channel.send({ embeds: [embed], components });
+    const panelMsg = await controlChannel.send({ embeds: [embed], components });
 
     await TempVoiceConfig.updateOne(
       { guildId: guild.id },
-      { controlPanelChannelId: interaction.channel.id, controlPanelMessageId: panelMsg.id }
+      { controlPanelMessageId: panelMsg.id }
     );
 
     await interaction.editReply({
       embeds: [successEmbed(
-        `Temp voice is set up!\n\n**Creator Channel:** ${creatorChannel}\n**Category:** ${category.name}\n**Control Panel:** Sent below`
+        `Temp voice is set up!\n\n**Category:** ${category.name}\n**Creator Channel:** ${creatorChannel}\n**Control Panel:** ${controlChannel}`
       )],
     });
   } catch (err) {
