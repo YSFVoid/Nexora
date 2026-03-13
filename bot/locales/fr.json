@@ -6,62 +6,41 @@
     "info": "Info",
     "loading": "Chargement...",
     "noPermission": "Vous n'avez pas la permission d'utiliser ceci.",
-    "cooldown": "Veuillez patienter **{seconds}s** avant de réutiliser.",
-    "invalidUser": "Utilisateur invalide.",
-    "invalidChannel": "Canal invalide.",
-    "noReason": "Aucune raison fournie",
+    "cooldown": "Veuillez patienter **{seconds}s** avant de réutiliser cette commande.",
     "enabled": "Activé",
     "disabled": "Désactivé",
-    "cancel": "Annuler",
-    "confirm": "Confirmer",
-    "save": "Sauvegarder",
-    "done": "Terminé"
-  },
-  "commands": {
-    "ban": {
-      "success": "**{user}** a été banni. Raison : {reason}",
-      "dmNotify": "Vous avez été banni de **{guild}**. Raison : {reason}"
-    },
-    "kick": {
-      "success": "**{user}** a été expulsé. Raison : {reason}",
-      "dmNotify": "Vous avez été expulsé de **{guild}**. Raison : {reason}"
-    },
-    "warn": {
-      "success": "**{user}** a reçu un avertissement. Raison : {reason}",
-      "noWarnings": "Cet utilisateur n'a aucun avertissement."
-    },
-    "purge": {
-      "success": "**{count}** messages supprimés."
-    },
-    "ping": {
-      "title": "Pong !",
-      "latency": "Latence : **{latency}ms**\nLatence API : **{api}ms**"
-    },
-    "setup": {
-      "title": "Assistant de Configuration Nexora",
-      "welcome": "Bienvenue dans l'assistant de configuration Nexora ! Configurons votre serveur.",
-      "complete": "Configuration Terminée !",
-      "completeDesc": "Nexora est maintenant configuré pour votre serveur."
-    }
+    "none": "Aucun"
   },
   "security": {
-    "spam": { "detected": "Spam détecté de {user}" },
-    "raid": { "detected": "Raid possible détecté ! {count} arrivées en {window}s" }
+    "spam": { "detected": "Spam détecté de {user}", "action": "Action prise : **{action}** — Filtre anti-spam déclenché" },
+    "raid": { "detected": "Raid possible détecté ! {count} arrivées en {window}s", "action": "Anti-raid : **{action}** appliqué à {user}" },
+    "scam": { "detected": "Arnaque possible détectée de {user}", "action": "Action prise : **{action}** — Filtre anti-arnaque déclenché" }
   },
   "tempvoice": {
     "created": "Votre salon vocal temporaire a été créé !",
+    "locked": "Le salon a été **verrouillé**.",
+    "unlocked": "Le salon a été **déverrouillé**.",
     "notOwner": "Vous n'êtes pas le propriétaire de ce salon.",
     "noRoom": "Vous n'avez pas de salon vocal actif."
   },
   "tickets": {
-    "panel": {
-      "title": "🎫 Tickets de Support",
-      "description": "Besoin d'aide ? Sélectionnez une catégorie pour créer un ticket."
-    },
+    "panel": { "title": "🎫 Tickets d'assistance", "description": "Besoin d'aide ? Sélectionnez une catégorie ci-dessous." },
     "created": "Votre ticket a été créé ! {channel}",
-    "closed": "Ticket fermé par **{user}**."
+    "closed": "Ticket fermé par **{user}**.",
+    "maxTickets": "Vous avez déjà le nombre maximum de tickets ouverts ({max})."
+  },
+  "music": {
+    "nowPlaying": "En cours de lecture : **{title}** ({duration})",
+    "addedToQueue": "Ajouté à la file : **{title}** ({duration})",
+    "skipped": "Piste passée : **{title}**",
+    "stopped": "Musique arrêtée et file vidée.",
+    "notInVoice": "Vous devez être dans un salon vocal.",
+    "nothingPlaying": "Rien n'est en cours de lecture."
   },
   "welcome": {
     "defaultMessage": "Bienvenue sur **{guild}**, {user} ! 🎉"
+  },
+  "leveling": {
+    "levelUp": "🎉 Félicitations {user} ! Vous avez atteint le **Niveau {level}** !"
   }
 }

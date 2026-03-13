@@ -70,28 +70,19 @@
     },
     "setup": {
       "title": "Nexora Setup Wizard",
-      "welcome": "Welcome to the Nexora Setup Wizard! Let's configure your server.\n\nFirst, select your **server type** to get recommended settings.",
+      "welcome": "Welcome to the Nexora Setup Wizard! Let's configure your server.",
       "serverType": "Server Type",
       "selectType": "Select your server type",
-      "community": "Community Server",
-      "gaming": "Gaming Server",
-      "shop": "Shop / Business Server",
-      "creator": "Creator Server",
-      "support": "Support / Helpdesk",
-      "custom": "Custom Setup",
-      "presetsApplied": "Smart presets applied for **{type}** server!",
-      "configuring": "Configuring **{module}**...",
-      "complete": "Setup Complete!",
-      "completeDesc": "Nexora is now configured for your server. You can modify settings anytime using `/settings` or the dashboard.",
-      "securityLevel": "Security Level",
-      "selectSecurity": "Choose your security level",
-      "securityLow": "Low — Basic protection",
-      "securityMedium": "Medium — Recommended",
-      "securityHigh": "High — Maximum protection",
       "step": "Step {current}/{total}"
     }
   },
   "security": {
+    "status": "Security Configuration",
+    "toggled": "**{module}** has been {status}.",
+    "actionSet": "**{module}** action set to `{action}`.",
+    "bypassAdded": "{target} added to security bypass.",
+    "bypassRemoved": "{target} removed from security bypass.",
+    "logChannelSet": "Security log channel set to {channel}.",
     "spam": {
       "detected": "Spam detected from {user}",
       "action": "Action taken: **{action}** — Spam filter triggered ({count} messages in {window}s)"
@@ -171,12 +162,27 @@
     "memberRemoved": "**{user}** has been removed from this ticket.",
     "transcriptSaved": "Transcript saved.",
     "maxTickets": "You already have the maximum number of open tickets ({max}).",
+    "categoryAdded": "Category **{name}** added.",
+    "categoryRemoved": "Category `{id}` removed.",
+    "staffRoleUpdated": "Staff role updated.",
+    "configUpdated": "Ticket configuration updated.",
     "categories": {
       "support": "General Support",
       "bug": "Bug Report",
       "purchase": "Purchase / Billing",
       "report": "Report a User"
     }
+  },
+  "music": {
+    "nowPlaying": "Now playing: **{title}** ({duration})",
+    "addedToQueue": "Added to queue: **{title}** ({duration})",
+    "skipped": "Skipped: **{title}**",
+    "stopped": "Music stopped and queue cleared.",
+    "noResults": "No results found.",
+    "notInVoice": "You must be in a voice channel.",
+    "nothingPlaying": "Nothing is currently playing.",
+    "queueEmpty": "The queue is empty.",
+    "playFailed": "Failed to play: {error}"
   },
   "welcome": {
     "defaultMessage": "Welcome to **{guild}**, {user}! 🎉",

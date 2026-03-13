@@ -22,6 +22,15 @@ const SECURITY_LEVELS = [
   { value: 'high', label: '🔴 High', description: 'Maximum protection — all filters enabled' },
 ];
 
+const LANGUAGE_OPTIONS = [
+  { value: 'en', label: '🇬🇧 English', description: 'English' },
+  { value: 'fr', label: '🇫🇷 Français', description: 'French' },
+  { value: 'ar', label: '🇸🇦 العربية', description: 'Arabic' },
+  { value: 'es', label: '🇪🇸 Español', description: 'Spanish' },
+  { value: 'pt', label: '🇧🇷 Português', description: 'Portuguese' },
+  { value: 'de', label: '🇩🇪 Deutsch', description: 'German' },
+];
+
 const PRESETS = {
   community: {
     security: 'medium',
@@ -67,15 +76,15 @@ async function startSetup(interaction) {
       "Let's configure your server for the best experience.",
       'First, select your **server type** to get smart recommended settings.',
       '',
-      '*You can always change settings later with `/settings` or the dashboard.*',
+      '*You can change any setting later with individual module commands.*',
     ].join('\n'),
-    footer: 'Step 1/4 • Server Type',
+    footer: 'Step 1/3 • Server Type',
   });
 
   const selectMenu = new StringSelectMenuBuilder()
     .setCustomId('setup:servertype')
     .setPlaceholder('Select your server type...')
-    .addOptions(SERVER_TYPES.map((t) => ({ label: t.label, value: t.value, description: t.description })));
+    .addOptions(SERVER_TYPES.map(t => ({ label: t.label, value: t.value, description: t.description })));
 
   await interaction.editReply({ embeds: [embed], components: [new ActionRowBuilder().addComponents(selectMenu)] });
 }
@@ -83,6 +92,7 @@ async function startSetup(interaction) {
 async function handleSelectMenu(interaction, action) {
   if (action === 'servertype') return handleServerTypeSelect(interaction);
   if (action === 'security') return handleSecuritySelect(interaction);
+  if (action === 'language') return handleLanguageSelect(interaction);
 }
 
 async function handleServerTypeSelect(interaction) {
@@ -90,14 +100,13 @@ async function handleServerTypeSelect(interaction) {
   const preset = PRESETS[serverType] || PRESETS.custom;
 
   await interaction.deferUpdate();
-
   await updateGuildConfig(interaction.guild.id, { serverType, modules: { ...preset.modules } });
 
   const embed = createEmbed({
     color: Colors.PRIMARY,
     title: `${Emojis.SHIELD} Security Configuration`,
     description: [
-      `**Server Type:** ${SERVER_TYPES.find((t) => t.value === serverType)?.label || serverType}`,
+      `**Server Type:** ${SERVER_TYPES.find(t => t.value === serverType)?.label || serverType}`,
       `**Applied:** ${preset.description}`,
       '',
       'Now choose your **security level**:',
@@ -106,13 +115,13 @@ async function handleServerTypeSelect(interaction) {
       '🟡 **Medium** — Balanced protection. Recommended for most servers.',
       '🔴 **High** — All filters active. Ideal for public or large servers.',
     ].join('\n'),
-    footer: 'Step 2/4 • Security Level',
+    footer: 'Step 2/3 • Security Level',
   });
 
   const selectMenu = new StringSelectMenuBuilder()
     .setCustomId('setup:security')
     .setPlaceholder('Choose security level...')
-    .addOptions(SECURITY_LEVELS.map((s) => ({ label: s.label, value: s.value, description: s.description })));
+    .addOptions(SECURITY_LEVELS.map(s => ({ label: s.label, value: s.value, description: s.description })));
 
   await interaction.editReply({ embeds: [embed], components: [new ActionRowBuilder().addComponents(selectMenu)] });
 }
@@ -128,6 +137,31 @@ async function handleSecuritySelect(interaction) {
     { upsert: true, new: true }
   );
 
+  const embed = createEmbed({
+    color: Colors.PRIMARY,
+    title: '🌐 Language Selection',
+    description: [
+      `**Security Level:** ${level.charAt(0).toUpperCase() + level.slice(1)}`,
+      '',
+      'Choose your **default language** for Nexora responses:',
+    ].join('\n'),
+    footer: 'Step 3/3 • Language',
+  });
+
+  const selectMenu = new StringSelectMenuBuilder()
+    .setCustomId('setup:language')
+    .setPlaceholder('Select language...')
+    .addOptions(LANGUAGE_OPTIONS.map(l => ({ label: l.label, value: l.value, description: l.description })));
+
+  await interaction.editReply({ embeds: [embed], components: [new ActionRowBuilder().addComponents(selectMenu)] });
+}
+
+async function handleLanguageSelect(interaction) {
+  const language = interaction.values[0];
+  await interaction.deferUpdate();
+
+  await updateGuildConfig(interaction.guild.id, { language });
+
   const guildConfig = await GuildConfig.findOne({ guildId: interaction.guild.id });
 
   const enabledModules = Object.entries(guildConfig?.modules || {})
@@ -137,19 +171,21 @@ async function handleSecuritySelect(interaction) {
 
   const embed = createEmbed({
     color: Colors.SUCCESS,
-    title: `${Emojis.SUCCESS} Setup Summary`,
+    title: `${Emojis.SUCCESS} Setup Complete!`,
     description: [
       '**Your Nexora configuration:**', '',
       `**Server Type:** ${guildConfig?.serverType || 'Custom'}`,
-      `**Security Level:** ${level.charAt(0).toUpperCase() + level.slice(1)}`,
-      `**Language:** ${guildConfig?.language || 'en'}`, '',
+      `**Language:** ${LANGUAGE_OPTIONS.find(l => l.value === language)?.label || language}`, '',
       '**Enabled Modules:**', enabledModules || 'None', '',
-      '**Next Steps:**',
-      '• Set up log channels with `/logs set`',
-      '• Configure welcome messages with `/welcome set`',
-      guildConfig?.modules?.tempvoice ? '• Set up temp voice with `/tempvoice setup`' : '',
-      guildConfig?.modules?.tickets ? '• Set up tickets with `/ticket setup`' : '',
-      '', '*Use `/settings` or the dashboard to fine-tune everything.*',
+      '**Recommended Next Steps:**',
+      guildConfig?.modules?.tempvoice ? '• `/tempvoice setup` — Set up temporary voice channels' : '',
+      guildConfig?.modules?.tickets ? '• `/ticket setup` — Deploy the ticket panel' : '',
+      guildConfig?.modules?.welcome ? '• `/welcome set` — Configure welcome messages' : '',
+      guildConfig?.modules?.autorole ? '• `/autorole add` — Add auto-assigned roles' : '',
+      guildConfig?.modules?.leveling ? '• `/leveling enable` — Configure leveling' : '',
+      guildConfig?.modules?.verification ? '• `/verification setup` — Set up member verification' : '',
+      '• `/security status` — Review security settings',
+      '• `/logging set` — Configure log channels',
     ].filter(Boolean).join('\n'),
     footer: 'Setup Complete • Nexora',
   });
@@ -168,7 +204,7 @@ async function handleButton(interaction, action) {
     const embed = createEmbed({
       color: Colors.SUCCESS,
       title: '🎉 Nexora is Ready!',
-      description: 'Your server is now configured and protected by Nexora.\n\nEnjoy the experience! If you need help, use `/help` or visit the dashboard.',
+      description: 'Your server is now configured and protected by Nexora.\n\nUse `/help` to explore all available commands.',
     });
     await interaction.update({ embeds: [embed], components: [] });
   }

@@ -1,20 +1,45 @@
 {
   "common": {
-    "success": "Erfolg", "error": "Fehler", "warning": "Warnung", "info": "Info",
-    "loading": "Laden...", "noPermission": "Du hast keine Berechtigung dafür.",
-    "noReason": "Kein Grund angegeben", "enabled": "Aktiviert", "disabled": "Deaktiviert",
-    "cancel": "Abbrechen", "confirm": "Bestätigen", "done": "Fertig"
+    "success": "Erfolg",
+    "error": "Fehler",
+    "warning": "Warnung",
+    "loading": "Laden...",
+    "noPermission": "Du hast keine Berechtigung, dies zu verwenden.",
+    "cooldown": "Bitte warte **{seconds}s** bevor du dies erneut verwendest.",
+    "enabled": "Aktiviert",
+    "disabled": "Deaktiviert",
+    "none": "Keine"
   },
-  "commands": {
-    "ban": { "success": "**{user}** wurde gebannt. Grund: {reason}" },
-    "kick": { "success": "**{user}** wurde gekickt. Grund: {reason}" },
-    "warn": { "success": "**{user}** wurde verwarnt. Grund: {reason}" },
-    "purge": { "success": "**{count}** Nachrichten gelöscht." },
-    "ping": { "title": "Pong!", "latency": "Latenz: **{latency}ms**" },
-    "setup": { "title": "Nexora Einrichtungsassistent", "complete": "Einrichtung abgeschlossen!" }
+  "security": {
+    "spam": { "detected": "Spam erkannt von {user}", "action": "Aktion: **{action}** — Spamfilter ausgelöst" },
+    "raid": { "detected": "Möglicher Raid erkannt! {count} Beitritte in {window}s", "action": "Anti-Raid: **{action}** auf {user} angewendet" },
+    "scam": { "detected": "Möglicher Betrug erkannt von {user}", "action": "Aktion: **{action}** — Betrugsfilter ausgelöst" }
   },
-  "security": { "spam": { "detected": "Spam erkannt von {user}" } },
-  "tempvoice": { "created": "Dein temporärer Sprachkanal wurde erstellt!" },
-  "tickets": { "created": "Dein Ticket wurde erstellt! {channel}" },
-  "welcome": { "defaultMessage": "Willkommen auf **{guild}**, {user}! 🎉" }
+  "tempvoice": {
+    "created": "Dein temporärer Sprachraum wurde erstellt!",
+    "locked": "Der Raum wurde **gesperrt**.",
+    "unlocked": "Der Raum wurde **entsperrt**.",
+    "notOwner": "Du bist nicht der Besitzer dieses Raums.",
+    "noRoom": "Du hast keinen aktiven Sprachraum."
+  },
+  "tickets": {
+    "panel": { "title": "🎫 Support-Tickets", "description": "Brauchst du Hilfe? Wähle unten eine Kategorie aus." },
+    "created": "Dein Ticket wurde erstellt! {channel}",
+    "closed": "Ticket geschlossen von **{user}**.",
+    "maxTickets": "Du hast bereits die maximale Anzahl offener Tickets ({max})."
+  },
+  "music": {
+    "nowPlaying": "Spielt jetzt: **{title}** ({duration})",
+    "addedToQueue": "Zur Warteschlange hinzugefügt: **{title}** ({duration})",
+    "skipped": "Übersprungen: **{title}**",
+    "stopped": "Musik gestoppt und Warteschlange geleert.",
+    "notInVoice": "Du musst in einem Sprachkanal sein.",
+    "nothingPlaying": "Es wird gerade nichts abgespielt."
+  },
+  "welcome": {
+    "defaultMessage": "Willkommen auf **{guild}**, {user}! 🎉"
+  },
+  "leveling": {
+    "levelUp": "🎉 Herzlichen Glückwunsch {user}! Du hast **Level {level}** erreicht!"
+  }
 }

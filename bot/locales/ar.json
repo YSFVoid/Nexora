@@ -5,25 +5,42 @@
     "warning": "تحذير",
     "info": "معلومات",
     "loading": "جاري التحميل...",
-    "noPermission": "ليس لديك إذن لاستخدام هذا.",
-    "cooldown": "يرجى الانتظار **{seconds}** ثانية قبل إعادة الاستخدام.",
-    "noReason": "لم يتم تقديم سبب",
-    "enabled": "مُفعّل",
-    "disabled": "مُعطّل",
-    "cancel": "إلغاء",
-    "confirm": "تأكيد",
-    "done": "تم"
+    "noPermission": "ليس لديك صلاحية لاستخدام هذا.",
+    "cooldown": "يرجى الانتظار **{seconds}ث** قبل استخدام هذا مرة أخرى.",
+    "enabled": "مفعّل",
+    "disabled": "معطّل",
+    "none": "لا شيء"
   },
-  "commands": {
-    "ban": { "success": "تم حظر **{user}**. السبب: {reason}" },
-    "kick": { "success": "تم طرد **{user}**. السبب: {reason}" },
-    "warn": { "success": "تم تحذير **{user}**. السبب: {reason}" },
-    "purge": { "success": "تم حذف **{count}** رسائل." },
-    "ping": { "title": "بونغ!", "latency": "زمن الاستجابة: **{latency}ms**" },
-    "setup": { "title": "معالج إعداد Nexora", "complete": "اكتمل الإعداد!" }
+  "security": {
+    "spam": { "detected": "تم اكتشاف سبام من {user}", "action": "الإجراء المتخذ: **{action}** — تم تفعيل فلتر السبام" },
+    "raid": { "detected": "تم اكتشاف هجوم محتمل! {count} انضمام خلال {window}ث", "action": "مكافحة الهجوم: **{action}** تم تطبيقه على {user}" },
+    "scam": { "detected": "تم اكتشاف احتيال محتمل من {user}", "action": "الإجراء المتخذ: **{action}** — تم تفعيل فلتر الاحتيال" }
   },
-  "security": { "spam": { "detected": "تم اكتشاف بريد مزعج من {user}" } },
-  "tempvoice": { "created": "تم إنشاء غرفتك الصوتية المؤقتة!" },
-  "tickets": { "created": "تم إنشاء تذكرتك! {channel}" },
-  "welcome": { "defaultMessage": "مرحباً بك في **{guild}**، {user}! 🎉" }
+  "tempvoice": {
+    "created": "تم إنشاء غرفتك الصوتية المؤقتة!",
+    "locked": "تم **قفل** الغرفة.",
+    "unlocked": "تم **فتح** الغرفة.",
+    "notOwner": "أنت لست مالك هذه الغرفة.",
+    "noRoom": "ليس لديك غرفة صوتية نشطة."
+  },
+  "tickets": {
+    "panel": { "title": "🎫 تذاكر الدعم", "description": "هل تحتاج مساعدة؟ اختر فئة أدناه لإنشاء تذكرة." },
+    "created": "تم إنشاء تذكرتك! {channel}",
+    "closed": "تم إغلاق التذكرة بواسطة **{user}**.",
+    "maxTickets": "لقد وصلت للحد الأقصى من التذاكر المفتوحة ({max})."
+  },
+  "music": {
+    "nowPlaying": "يتم تشغيل: **{title}** ({duration})",
+    "addedToQueue": "تمت الإضافة إلى القائمة: **{title}** ({duration})",
+    "skipped": "تم تخطي: **{title}**",
+    "stopped": "تم إيقاف الموسيقى ومسح القائمة.",
+    "notInVoice": "يجب أن تكون في قناة صوتية.",
+    "nothingPlaying": "لا يتم تشغيل أي شيء حالياً."
+  },
+  "welcome": {
+    "defaultMessage": "مرحباً بك في **{guild}**، {user}! 🎉"
+  },
+  "leveling": {
+    "levelUp": "🎉 تهانينا {user}! لقد وصلت إلى **المستوى {level}**!"
+  }
 }

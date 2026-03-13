@@ -9,11 +9,14 @@
     "deploy": "node src/deploy-commands.js"
   },
   "dependencies": {
+    "@discordjs/voice": "^0.19.1",
     "discord.js": "^14.14.1",
-    "mongoose": "^8.1.1",
     "dotenv": "^16.4.1",
+    "html-entities": "^2.4.0",
+    "mongoose": "^8.1.1",
     "ms": "^2.1.3",
-    "html-entities": "^2.4.0"
+    "play-dl": "^1.9.7",
+    "sodium-native": "^5.1.0"
   },
   "engines": {
     "node": ">=18.0.0"
